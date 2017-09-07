@@ -7,9 +7,6 @@
  * @return {Element}
  */
 function createDivWithText(text) {
-    var div = document.createElement("div");
-    div.textContent = text;
-    return div;
 }
 
 /**
@@ -19,10 +16,8 @@ function createDivWithText(text) {
  * @return {Element}
  */
 function createAWithHref(hrefValue) {
-    var elem = document.createElement("a");
-    elem.setAttribute("href", hrefValue);
-    return elem;
 }
+
 /**
  * Функция должна вставлять элемент what в начало элемента where
  *
@@ -30,9 +25,7 @@ function createAWithHref(hrefValue) {
  * @param {Element} where - куда вставлять
  */
 function prepend(what, where) {
-    where.insertBefore(what, where.firstChild);
 }
-
 
 /**
  * Функция должна перебрать все дочерние элементы элемента where
@@ -49,13 +42,6 @@ function prepend(what, where) {
  * т.к. следующим соседом этих элементов является элемент с тегом P
  */
 function findAllPSiblings(where) {
-    var arr = [];
-    for (let i = 0; i < where.children.length; i++){
-        if(where.children[i].nextElementSibling ('p')){
-            arr[i] = where.children[i];
-        }
-    }
-    return arr;
 }
 
 /**
@@ -68,9 +54,11 @@ function findAllPSiblings(where) {
  */
 function findError(where) {
     var result = [];
+
     for (var i = 0; i < where.childNodes.length; i++) {
-        result[i] = where.childNodes[i].innerText;
+        result.push(where.childNodes[i].innerText);
     }
+
     return result;
 }
 
@@ -162,7 +150,7 @@ function collectDOMStat(root) {
 function observeChildNodes(where, fn) {
 }
 
-/*export {
+export {
     createDivWithText,
     createAWithHref,
     prepend,
@@ -172,4 +160,4 @@ function observeChildNodes(where, fn) {
     deleteTextNodesRecursive,
     collectDOMStat,
     observeChildNodes
-};*/
+};
